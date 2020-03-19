@@ -10,7 +10,7 @@ const Form = (props) => {
                     <input type ="text" name="city" className= "input_style shadow-2 outline w-30 pa1 mr2" placeholder="City"></input>
                     <input type="text" name="country" className= "input_style shadow-2 outline w-30 pa1 mr2" placeholder="Country"></input>
                     <p>
-                        <button className= "button_style grow shadow-5">Get Weather Conditions</button>
+                        <button className= "button_style grow shadow-5">Get Weather Report</button>
                     </p>
                 </form>
             </div>

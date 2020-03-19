@@ -38,12 +38,19 @@ class App extends Component{
       const city = e.target.elements.city.value;
       const country = e.target.elements.country.value;
       const api_call = await 
-          fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${Api_Key}`);
-         // .catch((error) => response.state(404) = console.log('Please enter the correct values'));
+      
+      // try{
+           fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${Api_Key}`);
+      // }catch(error) {
+      //   response.state(404) = console.log('Please enter the correct values',error)
+      //   this.setState ({
+      //     error: "Not found!!!"
+      //   })
+      // }
+
       const response = await api_call.json();
       console.log(response)
 
-      //const errorMessage = "Please make sure you spell the city and country name correctly."
       if(response.cod === 200){
         if(city && country){
           this.setState({
@@ -56,12 +63,11 @@ class App extends Component{
         })
         } else {
           this.setState({
-            error: "Please enter the values"
+            error: "Please enter the name of city and country"
           })
         }
       } else {
         this.setState({
-         // errorMessage : 'Please make sure you spell the city and country name correctly.'
           errorMessage: response.message
         })
       }
